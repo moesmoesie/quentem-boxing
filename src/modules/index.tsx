@@ -1,4 +1,4 @@
-import { HomeLanding } from "../modules/home-landing/home-landing";
+import HomeLanding from "../modules/home-landing/home-landing";
 import Contact from "../modules/contact/contact";
 
 import { HomeLandingZod } from "../modules/home-landing/home-landing.type";
