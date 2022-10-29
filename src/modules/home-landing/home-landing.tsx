@@ -12,8 +12,8 @@ const HomeLanding: React.FC<HomeLandingType> = (props) => {
           width={2000}
           data={props.background ?? undefined}
         />
-        <section className="pt-[200px] relative">
-          <div className="mb-11">
+        <section className="medium:pt-[200px] pt-[160px] relative">
+          <div className="mb-6 medium:mb-10">
             <p className="text-accent text-xl  medium:text-2xl">
               {props.subtitle}
             </p>
@@ -24,7 +24,7 @@ const HomeLanding: React.FC<HomeLandingType> = (props) => {
               {props.body}
             </p>
           </div>
-          <div className="space-x-10">
+          <div className="flex flex-wrap gap-5 medium:gap-10">
             <Button>Wedstrijden</Button>
             <Button intent={"outlined"}>Lees Blog</Button>
           </div>

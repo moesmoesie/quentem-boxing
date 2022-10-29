@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-const button = cva("px-6 py-3 rounded-md hover:-translate-y-1 transition-transform text-xl", {
+const button = cva("medium:px-6 px-4 py-2 medium:py-3 text-lg rounded-md hover:-translate-y-1 transition-transform medium:text-xl", {
   variants: {
     intent: {
       primary: "bg-primary border border-primary",
