@@ -2,12 +2,15 @@ import { deskTool } from "sanity/desk";
 import PageSchema from "./schemas/page";
 import HomeLandingSchema from "../modules/home-landing/home-landing.schema";
 import ContactSchema from "../modules/contact/contact.schema";
-import { Config } from "sanity";
+import { Config, isDev } from "sanity";
 import BaseConfig from "./sanity.base-config";
+import { visionTool } from "@sanity/vision";
+
+const devOnlyPlugins = [visionTool()];
 
 const config: Config = {
   ...BaseConfig,
-  plugins: [deskTool()],
+  plugins: [deskTool(), ...(isDev ? devOnlyPlugins : [])],
   basePath: "/studio",
 
   schema: {

@@ -18,11 +18,3 @@ export function filterDataToSingleItem(data, preview) {
 
   return data[0];
 }
-
-export const formatSlugData = (data) => {
-  return data.map(({ params }) => {
-    return {
-      params: { slug: params.slug.split("/").filter((el) => el) },
-    };
-  });
-};

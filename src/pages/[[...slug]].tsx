@@ -2,7 +2,6 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import { getClient } from "../sanity/sanity.server";
-import { formatSlugData } from "../sanity/sanity.helpers";
 import { usePreviewSubscription } from "../sanity/sanity.helpers";
 import { filterDataToSingleItem } from "../sanity/sanity.helpers";
 import Module, { ModuleZod } from "../modules";
@@ -56,8 +55,7 @@ const Page: React.FC<Props> = (props) => {
 export default Page;
 
 export async function getStaticPaths() {
-  let data = await getClient(false).fetch(SlugQuery);
-  data = formatSlugData(data);
+  const data = await getClient(false).fetch(SlugQuery);
 
   return {
     paths: data,
@@ -96,9 +94,9 @@ export const getStaticProps: GetStaticProps = async ({
 
 const SlugQuery = groq`
   *[defined(slug.current)]{
-    'params': {
-      'slug': slug.current
-    }
+      'params': {
+        "slug": string::split(slug.current,"/")[@ != ""]
+      }
   }
 `;
 
