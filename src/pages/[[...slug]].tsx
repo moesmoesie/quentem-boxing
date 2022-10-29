@@ -113,7 +113,10 @@ const PageQuery = groq`
           _id,
           ...select(
             _type == "home-landing" => {
-              title
+              "title" : coalesce(title, "Title"),
+              "subtitle" : coalesce(subtitle, "Subtitle"),
+              "body" : coalesce(body, "Body"),
+              "background":  coalesce(background.asset->, null)
             },
             _type == "contact" => {
               title,

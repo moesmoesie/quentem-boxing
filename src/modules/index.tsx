@@ -1,8 +1,8 @@
 import HomeLanding from "../modules/home-landing/home-landing";
 import Contact from "../modules/contact/contact";
 
-import { HomeLandingZod } from "../modules/home-landing/home-landing.type";
-import { ContactZod } from "../modules/contact/contact.type";
+import { HomeLandingZod } from "../modules/home-landing/home-landing";
+import { ContactZod } from "../modules/contact/contact";
 import { z } from "zod";
 
 const Module: React.FC<z.infer<typeof ModuleZod>> = (props) => {

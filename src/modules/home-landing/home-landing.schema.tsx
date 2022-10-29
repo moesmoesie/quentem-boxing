@@ -10,6 +10,21 @@ const HomeLandingSchema = defineType({
       title: "Title",
       type: "string",
     }),
+    defineField({
+      name: "subtitle",
+      title: "Subtitle",
+      type: "string",
+    }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "text",
+    }),
+    defineField({
+      name: "background",
+      title: "Background",
+      type: "image",
+    }),
   ],
 });
 

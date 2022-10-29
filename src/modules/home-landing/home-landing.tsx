@@ -1,11 +1,51 @@
-import HomeLandingType from "./home-landing.type";
+import Button from "../../components/button/button";
+import Container from "../../components/container/container";
+import Image from "../../components/image/image";
 
 const HomeLanding: React.FC<HomeLandingType> = (props) => {
   return (
-    <section>
-      <h1>{props.title}</h1>
-    </section>
+    <div className="relative">
+      <Container>
+        <Image
+          lazy={false}
+          className=" right-0 left-0 pointer-events-none absolute medium:h-[100vh] h-[80vh] object-cover"
+          width={2000}
+          data={props.background ?? undefined}
+        />
+        <section className="pt-32 relative">
+          <div className="mb-11">
+            <p className="text-accent text-xl  medium:text-2xl">
+              {props.subtitle}
+            </p>
+            <h1 className="text-5xl medium:text-6xl font-bold mb-3 max-w-[500px] leading-tight">
+              {props.title}
+            </h1>
+            <p className="text-xl medium:text-2xl text-gray-100 max-w-md">
+              {props.body}
+            </p>
+          </div>
+          <div className="space-x-10">
+            <Button>Get Started</Button>
+            <Button intent={"outlined"}>Live Demo</Button>
+          </div>
+        </section>
+      </Container>
+    </div>
   );
 };
 
 export default HomeLanding;
+
+import { z } from "zod";
+import { ImageZod } from "../../types";
+
+export const HomeLandingZod = z.object({
+  _id: z.string(),
+  _type: z.literal("home-landing"),
+  title: z.string(),
+  subtitle: z.string(),
+  body: z.string(),
+  background: ImageZod.nullable(),
+});
+
+export type HomeLandingType = z.infer<typeof HomeLandingZod>;
