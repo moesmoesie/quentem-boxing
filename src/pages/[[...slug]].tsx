@@ -122,6 +122,9 @@ const PageQuery = groq`
               title,
               "email" : coalesce(email, "placeholder@email.com")
             },
+            _type== "header" => {
+              "logo" : coalesce(logo, "logo"),
+            }
           ) 
         }
     }

@@ -12,7 +12,7 @@ const HomeLanding: React.FC<HomeLandingType> = (props) => {
           width={2000}
           data={props.background ?? undefined}
         />
-        <section className="pt-32 relative">
+        <section className="pt-[200px] relative">
           <div className="mb-11">
             <p className="text-accent text-xl  medium:text-2xl">
               {props.subtitle}
@@ -25,8 +25,8 @@ const HomeLanding: React.FC<HomeLandingType> = (props) => {
             </p>
           </div>
           <div className="space-x-10">
-            <Button>Get Started</Button>
-            <Button intent={"outlined"}>Live Demo</Button>
+            <Button>Wedstrijden</Button>
+            <Button intent={"outlined"}>Lees Blog</Button>
           </div>
         </section>
       </Container>

@@ -36,7 +36,11 @@ export default defineType({
       of: [
         {
           type: "reference",
-          to: [{ type: "home-landing" }, { type: "contact" }],
+          to: [
+            { type: "home-landing" },
+            { type: "contact" },
+            { type: "header" },
+          ],
         },
       ],
     }),

@@ -5,6 +5,7 @@ import ContactSchema from "../modules/contact/contact.schema";
 import { Config, isDev } from "sanity";
 import BaseConfig from "./sanity.base-config";
 import { visionTool } from "@sanity/vision";
+import HeaderSchema from "../modules/header/header.schema";
 
 const devOnlyPlugins = [visionTool()];
 
@@ -14,7 +15,7 @@ const config: Config = {
   basePath: "/studio",
 
   schema: {
-    types: [PageSchema, HomeLandingSchema, ContactSchema],
+    types: [PageSchema, HomeLandingSchema, ContactSchema, HeaderSchema],
   },
 
   document: {
