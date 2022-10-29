@@ -1,15 +1,7 @@
-import {
-  createPreviewSubscriptionHook,
-  createCurrentUserHook,
-} from "next-sanity";
+import { createPreviewSubscriptionHook } from "next-sanity";
+import BaseConfig from "./sanity.base-config";
 
-import config from "./sanity.config";
-
-// Set up the live preview subscription hook
-export const usePreviewSubscription = createPreviewSubscriptionHook(config);
-
-// Helper function for using the current logged in user account
-export const useCurrentUser = createCurrentUserHook(config);
+export const usePreviewSubscription = createPreviewSubscriptionHook(BaseConfig);
 
 export function filterDataToSingleItem(data, preview) {
   if (!Array.isArray(data)) {

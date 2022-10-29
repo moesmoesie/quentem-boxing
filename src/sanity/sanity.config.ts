@@ -3,17 +3,10 @@ import PageSchema from "./schemas/page";
 import HomeLandingSchema from "../modules/home-landing/home-landing.schema";
 import ContactSchema from "../modules/contact/contact.schema";
 import { Config } from "sanity";
-
-export const baseConfig = {
-  name: process.env.NEXT_PUBLIC_SANITY_NAME!,
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: "2022-10-10",
-  useCdn: false,
-};
+import BaseConfig from "./sanity.base-config";
 
 const config: Config = {
-  ...baseConfig,
+  ...BaseConfig,
   plugins: [deskTool()],
   basePath: "/studio",
 
