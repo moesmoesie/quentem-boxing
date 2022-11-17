@@ -4,7 +4,6 @@ import { ImageType } from "../../types";
 import Image from "next/image";
 
 export const HomeLanding: React.FC<HomeLandingType> = (props) => {
-  console.log(props);
   return (
     <div className="relative">
       <Container>

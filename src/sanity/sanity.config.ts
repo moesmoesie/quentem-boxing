@@ -2,7 +2,7 @@ import { deskTool } from "sanity/desk";
 import PageSchema from "./schemas/page";
 import HomeLandingSchema from "../modules/home-landing/home-landing.schema";
 import ContactSchema from "../modules/contact/contact.schema";
-import { Config, isDev } from "sanity";
+import { Config } from "sanity";
 import BaseConfig from "./sanity.base-config";
 import HeaderSchema from "../modules/header/header.schema";
 
