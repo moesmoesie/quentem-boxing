@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 const HeaderSchema = defineType({
   name: "header",
-  type: "document",
+  type: "object",
   title: "Header",
   fields: [
     defineField({

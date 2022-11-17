@@ -4,14 +4,11 @@ import HomeLandingSchema from "../modules/home-landing/home-landing.schema";
 import ContactSchema from "../modules/contact/contact.schema";
 import { Config, isDev } from "sanity";
 import BaseConfig from "./sanity.base-config";
-import { visionTool } from "@sanity/vision";
 import HeaderSchema from "../modules/header/header.schema";
-
-const devOnlyPlugins = [visionTool()];
 
 const config: Config = {
   ...BaseConfig,
-  plugins: [deskTool(), ...(isDev ? devOnlyPlugins : [])],
+  plugins: [deskTool()],
   basePath: "/studio",
 
   schema: {
@@ -22,10 +19,7 @@ const config: Config = {
     productionUrl: async (_, context) => {
       const { document } = context;
 
-      const baseUrl =
-        window.location.hostname === "localhost"
-          ? process.env.NEXT_PUBLIC_DEVELOPMENT_URL!
-          : process.env.NEXT_PUBLIC_PRODUCTION_URL!;
+      const baseUrl = window.location.hostname === "localhost" ? process.env.NEXT_PUBLIC_DEVELOPMENT_URL! : process.env.NEXT_PUBLIC_PRODUCTION_URL!;
 
       const previewUrl = new URL(baseUrl);
       const previewSecret = process.env.NEXT_PUBLIC_PREVIEW!;

@@ -1,70 +1,34 @@
-import Head from "next/head";
 import { GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import { getClient } from "../sanity/sanity.server";
-import { usePreviewSubscription } from "../sanity/sanity.helpers";
-import { filterDataToSingleItem } from "../sanity/sanity.helpers";
+import { filterDataToSingleItem } from "../helpers/filterDataToSingleItem";
 
-// IMPORT MODULES
-import { Header } from "../modules/header";
-import { HomeLanding } from "../modules/home-landing";
-import { Contact } from "../modules/contact";
+import { Page } from "../page";
+import { lazy } from "react";
+import { PreviewSuspense } from "next-sanity/preview";
 
-const Page: React.FC<Props> = (props) => {
-  const { data: previewData } = usePreviewSubscription(props.query, {
-    params: props.queryParams ?? {},
-    initialData: props.page,
-    enabled: props.preview,
-  });
+const PreviewPage = lazy(() => import("../previewPage"));
 
-  const page: PageType = filterDataToSingleItem(previewData, props.preview);
+const Home: React.FC<Props> = (props) => {
+  if (props.preview) {
+    return (
+      <PreviewSuspense fallback={<Page {...props.page} />}>
+        <PreviewPage query={props.query} params={props.queryParams} />
+      </PreviewSuspense>
+    );
+  }
 
-  return (
-    <div>
-      <Head>
-        <title>{page.seo.title ?? ""}</title>
-        <meta name="description" content={page.seo.description ?? ""} />
-        <meta name="keywords" content={page.seo?.keywords ? "" : ""} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div>
-        {page.modules &&
-          page.modules.map((module, index) => {
-            switch (module._type) {
-              case "header":
-                return <Header key={index} {...module} />;
-              case "home-landing":
-                return <HomeLanding {...module} />;
-              case "contact":
-                return <Contact {...module} />;
-              default:
-                return <div>Module not found : {module._type}</div>;
-            }
-          })}
-      </div>
-    </div>
-  );
+  return <Page {...props.page} />;
 };
 
-interface SeoType {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-}
-
-interface PageType {
-  seo: SeoType;
-  modules: any[];
-}
-
 interface Props {
-  page: PageType;
+  page: any;
   preview: boolean;
   query: string;
   queryParams: any;
 }
 
-export default Page;
+export default Home;
 
 // LOAD DATA
 
@@ -89,7 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
 
   if (!data) return { notFound: true };
 
-  const page: Props = filterDataToSingleItem(data, preview);
+  const page: any = filterDataToSingleItem(data, preview);
 
   return {
     props: {
@@ -119,20 +83,34 @@ const PageQuery = groq`
           "description" : coalesce(description, "Description"),
           "keywords" : coalesce(keywords, [])
         },
-        modules[]-> {
+        modules[]{
           _type,
           _id,
           ...select(
+
+
             _type == "home-landing" => {
               "title" : coalesce(title, "Title"),
               "subtitle" : coalesce(subtitle, "Subtitle"),
               "body" : coalesce(body, "Body"),
-              "background":  coalesce(background.asset->, null)
+              background{
+                defined(alt) => alt,
+                defined(title) => title,
+                ...asset->{
+                  'src': url,
+                  "width": metadata.dimensions.width,
+                  "height": metadata.dimensions.height,
+                }
+              }
             },
+
+
             _type == "contact" => {
               title,
               "email" : coalesce(email, "placeholder@email.com")
             },
+
+            
             _type== "header" => {
               "logo" : coalesce(logo, "logo"),
             }

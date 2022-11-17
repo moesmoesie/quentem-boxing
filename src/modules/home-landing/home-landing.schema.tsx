@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 const HomeLandingSchema = defineType({
   name: "home-landing",
-  type: "document",
+  type: "object",
   title: "Home Landing",
   fields: [
     defineField({

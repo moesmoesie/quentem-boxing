@@ -1,21 +1,12 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import React from "react";
 
 type Props = {};
 
 class Document extends NextDocument<Props> {
   render() {
     return (
-      <Html className="bg-black text-white" lang="en">
-        <Head>
-          <link
-            rel="preload"
-            href="/fonts/Rubik-VariableFont_wght.ttf"
-            as="font"
-            type="font/ttf"
-            crossOrigin="anonymous"
-          />
-        </Head>
+      <Html className="h-full bg-black text-white" lang="en">
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

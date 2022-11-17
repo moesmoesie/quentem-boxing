@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 const ContactSchema = defineType({
   name: "contact",
-  type: "document",
+  type: "object",
   title: "Contact",
   fields: [
     defineField({

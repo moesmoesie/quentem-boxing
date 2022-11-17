@@ -33,16 +33,7 @@ export default defineType({
       name: "modules",
       title: "Modules",
       type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [
-            { type: "home-landing" },
-            { type: "contact" },
-            { type: "header" },
-          ],
-        },
-      ],
+      of: [{ type: "home-landing" }, { type: "contact" }, { type: "header" }],
     }),
   ],
 });

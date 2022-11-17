@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     fontFamily: {
-      body: ["Rubik"],
+      sans: ["var(--font-rubik)"],
     },
     colors: {
       primary: "#A126F1",

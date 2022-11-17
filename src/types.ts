@@ -3,5 +3,7 @@ export interface ImageType {
   width: number;
   height: number;
   aspectRatio: number;
+  alt: string;
+  title: string;
   blurDataURL: string;
 }
