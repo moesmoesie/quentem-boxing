@@ -1,16 +1,14 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Component from "./home-landing";
+import { HomeLanding } from "./home-landing";
 
 export default {
   title: "Modules/Home Landing",
-  component: Component,
-} as ComponentMeta<typeof Component>;
+  component: HomeLanding,
+} as ComponentMeta<typeof HomeLanding>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
+const Template: ComponentStory<typeof HomeLanding> = (args) => <HomeLanding {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

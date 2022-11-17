@@ -4,26 +4,11 @@ import { groq } from "next-sanity";
 import { getClient } from "../sanity/sanity.server";
 import { usePreviewSubscription } from "../sanity/sanity.helpers";
 import { filterDataToSingleItem } from "../sanity/sanity.helpers";
-import Module, { ModuleZod } from "../modules";
-import { z } from "zod";
 
-const PageZod = z.object({
-  seo: z.object({
-    title: z.string().nullable(),
-    description: z.string().nullable(),
-    keywords: z.array(z.string()).nullable(),
-  }),
-  modules: z.array(ModuleZod).nullish(),
-});
-
-type PageType = z.infer<typeof PageZod>;
-
-interface Props {
-  page: PageType;
-  preview: boolean;
-  query: string;
-  queryParams: any;
-}
+// IMPORT MODULES
+import { Header } from "../modules/header";
+import { HomeLanding } from "../modules/home-landing";
+import { Contact } from "../modules/contact";
 
 const Page: React.FC<Props> = (props) => {
   const { data: previewData } = usePreviewSubscription(props.query, {
@@ -45,14 +30,43 @@ const Page: React.FC<Props> = (props) => {
       <div>
         {page.modules &&
           page.modules.map((module, index) => {
-            return <Module key={index} {...module} />;
+            switch (module._type) {
+              case "header":
+                return <Header key={index} {...module} />;
+              case "home-landing":
+                return <HomeLanding {...module} />;
+              case "contact":
+                return <Contact {...module} />;
+              default:
+                return <div>Module not found : {module._type}</div>;
+            }
           })}
       </div>
     </div>
   );
 };
 
+interface SeoType {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+}
+
+interface PageType {
+  seo: SeoType;
+  modules: any[];
+}
+
+interface Props {
+  page: PageType;
+  preview: boolean;
+  query: string;
+  queryParams: any;
+}
+
 export default Page;
+
+// LOAD DATA
 
 export async function getStaticPaths() {
   const data = await getClient(false).fetch(SlugQuery);
@@ -63,10 +77,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = false,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview = false }) => {
   let slug = "/";
 
   if (params?.slug && Array.isArray(params.slug)) {
@@ -80,8 +91,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   const page: Props = filterDataToSingleItem(data, preview);
 
-  PageZod.parse(page);
-
   return {
     props: {
       page: page,
@@ -91,6 +100,8 @@ export const getStaticProps: GetStaticProps = async ({
     },
   };
 };
+
+// QUERY
 
 const SlugQuery = groq`
   *[defined(slug.current)]{

@@ -1,7 +1,6 @@
-import { z } from "zod";
 import Container from "../../components/container/container";
 
-const Contact: React.FC<HeaderType> = (props) => {
+export const Header: React.FC<HeaderType> = (props) => {
   return (
     <header className="bg-black/80 backdrop-blur-3xl  fixed top-0 w-full py-4 z-50">
       <Container>
@@ -28,12 +27,6 @@ const Contact: React.FC<HeaderType> = (props) => {
   );
 };
 
-export default Contact;
-
-export const HeaderZod = z.object({
-  _type: z.literal("header"),
-  _id: z.string(),
-  logo: z.string(),
-});
-
-export type HeaderType = z.infer<typeof HeaderZod>;
+export interface HeaderType {
+  logo: string;
+}

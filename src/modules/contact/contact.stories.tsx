@@ -1,16 +1,13 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Component from "./contact";
+import { Contact } from "./contact";
 
 export default {
   title: "Modules/Contact",
-  component: Component,
-} as ComponentMeta<typeof Component>;
+  component: Contact,
+} as ComponentMeta<typeof Contact>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
-);
+const Template: ComponentStory<typeof Contact> = (args) => <Contact {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
