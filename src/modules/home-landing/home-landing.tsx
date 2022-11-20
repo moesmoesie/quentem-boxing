@@ -1,7 +1,7 @@
 import Button from "../../components/button/button";
 import Container from "../../components/container/container";
-import { ImageType } from "../../types";
 import Image from "next/image";
+import { HomeLandingType } from "./home-landing.types";
 
 export const HomeLanding: React.FC<HomeLandingType> = (props) => {
   return (
@@ -23,10 +23,3 @@ export const HomeLanding: React.FC<HomeLandingType> = (props) => {
     </div>
   );
 };
-
-export interface HomeLandingType {
-  title: string;
-  subtitle: string;
-  body: string;
-  background?: ImageType;
-}

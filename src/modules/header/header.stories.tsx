@@ -1,10 +1,9 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Header } from "./header";
 
 export default {
-  title: "Modules/Contact",
+  title: "Modules/Header",
   component: Header,
 } as ComponentMeta<typeof Header>;
 

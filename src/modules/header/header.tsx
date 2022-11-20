@@ -1,4 +1,5 @@
 import Container from "../../components/container/container";
+import { HeaderType } from "./header.types";
 
 export const Header: React.FC<HeaderType> = (props) => {
   return (
@@ -26,7 +27,3 @@ export const Header: React.FC<HeaderType> = (props) => {
     </header>
   );
 };
-
-export interface HeaderType {
-  logo: string;
-}
