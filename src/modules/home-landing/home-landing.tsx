@@ -5,7 +5,7 @@ import { HomeLandingType } from "./home-landing.types";
 
 export const HomeLanding: React.FC<HomeLandingType> = (props) => {
   return (
-    <div className="relative">
+    <div className="relative text-white">
       <Container>
         {props.background && <Image {...props.background} width={1000} priority className=" right-0 w-full left-0 pointer-events-none absolute medium:h-[100vh] h-[80vh] object-cover" />}
         <section className="medium:pt-[200px] pt-[160px] relative">

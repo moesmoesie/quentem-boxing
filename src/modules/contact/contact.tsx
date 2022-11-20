@@ -1,5 +1,5 @@
-import { ContactType } from "./contact.type";
+import { ContactType } from "./contact.types";
 
 export const Contact: React.FC<ContactType> = (props) => {
-  return <section>{props.email}</section>;
+  return <section className="text-white">{props.email}</section>;
 };
