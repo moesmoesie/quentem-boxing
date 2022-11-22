@@ -11,7 +11,7 @@ const Disclosure: React.FC<DisclosureProps> = (props) => {
     <HD>
       <div className="text-white flex-col bg-[#151515] rounded-2xl flex">
         <HD.Button className="flex gap-8 items-center p-4">
-          <div className="w-8 h-8 stroke-primary">{props.icon}</div>
+          <div className="w-8 h-8 ui-open:text-primary text-[#9BBE1A]">{props.icon}</div>
           <p className="text-xl text-left font-medium">{props.title}</p>
           <div className="ml-auto transition-transform ui-open:rotate-45">
             <PlusIcon />
@@ -28,11 +28,11 @@ const Disclosure: React.FC<DisclosureProps> = (props) => {
 
 export default Disclosure;
 
-const PlusIcon = () => {
+function PlusIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line y1="11.25" x2="24" y2="11.25" stroke="currentColor" stroke-width="1.5" />
-      <line x1="12.75" y1="3.27835e-08" x2="12.75" y2="24" stroke="currentColor" stroke-width="1.5" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" strokeWidth="1.5" d="M0 11.25L24 11.25"></path>
+      <path stroke="currentColor" strokeWidth="1.5" d="M12.75 0L12.75 24"></path>
     </svg>
   );
-};
+}

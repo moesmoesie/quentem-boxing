@@ -17,3 +17,5 @@ export interface PageType {
   title: string;
   content?: ContentType[];
 }
+
+export type IconType = string | undefined;

@@ -1,4 +1,5 @@
 import { ImageType } from "../../types";
+import { IconType } from "../../types";
 
 export interface Info1Type {
   _type: "info-1";
@@ -8,6 +9,6 @@ export interface Info1Type {
   list: {
     title: string;
     body: string;
-    icon: ImageType;
+    icon: IconType;
   }[];
 }

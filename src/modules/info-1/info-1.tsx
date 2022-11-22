@@ -2,6 +2,7 @@ import { Container } from "../../components/container";
 import { Info1Type } from "./info-1.types";
 import Disclosure from "../../components/Disclosure/disclosure";
 import Image from "next/image";
+import { Icon } from "../../components/icon";
 
 const Info1: React.FC<Info1Type> = (props) => {
   return (
@@ -18,7 +19,7 @@ const Info1: React.FC<Info1Type> = (props) => {
           </div>
           <div className="w-full medium:w-[70%] large:w-[55%] flex flex-col gap-7">
             {props?.list?.map((item, index) => {
-              return <Disclosure key={index} title={item.title} body={item.body} icon={<Image {...item.icon} className="w-full h-full object-contain" />} />;
+              return <Disclosure key={index} title={item.title} body={item.body} icon={<Icon icon={item.icon} />} />;
             })}
           </div>
         </div>
