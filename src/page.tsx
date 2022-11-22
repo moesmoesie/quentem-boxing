@@ -1,30 +1,35 @@
 import Head from "next/head";
+import { Contact } from "./modules/contact";
 import { Header } from "./modules/header";
 import { HomeLanding } from "./modules/home-landing";
+import { Info1 } from "./modules/info-1";
+import { PageType } from "./types";
 
-export const Page: React.FC = () => {
+export const Page: React.FC<PageType> = (props) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Quentem</title>
         <meta name="description" content="Description" />
         <meta name="keywords" content="Boxing, Personal Trainer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header logo="Quentem" />
-      <HomeLanding
-        title="Transforming your Body Shape with Diet"
-        subtitle="_MyBodyGoals"
-        body="Change your body shape according to your dreams with a healthy diet plan from the worlds best nutritionist"
-        background={{
-          src: "/images/background.png",
-          alt: "Quentem",
-          title: "Quentem",
-          width: 1000,
-          height: 1000,
-        }}
-      />
-    </div>
+      <main>
+        {props?.content?.map((el, index) => {
+          switch (el._type) {
+            case "header":
+              return <Header key={index} {...el} />;
+            case "info-1":
+              return <Info1 key={index} {...el} />;
+            case "contact":
+              return <Contact key={index} {...el} />;
+            case "home-landing":
+              return <HomeLanding key={index} {...el} />;
+            default:
+              return <p>Unknown Module Type</p>;
+          }
+        })}
+      </main>
+    </>
   );
 };
