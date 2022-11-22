@@ -1,4 +1,10 @@
 import { PageType } from "./types";
+import { SpacerType } from "./modules/spacer/spacer.types";
+
+const spacer: SpacerType = {
+  _type: "spacer",
+  height: "100px",
+};
 
 export const data: PageType = {
   title: "Quentem",
@@ -20,6 +26,7 @@ export const data: PageType = {
         src: "/images/background.png",
       },
     },
+    spacer,
     {
       _type: "info-1",
       title: "What is Lorem Ipsum?",

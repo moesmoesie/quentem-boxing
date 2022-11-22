@@ -2,8 +2,9 @@ import { ContactType } from "./modules/contact/contact.types";
 import { HeaderType } from "./modules/header/header.types";
 import { HomeLandingType } from "./modules/home-landing/home-landing.types";
 import { Info1Type } from "./modules/info-1/info-1.types";
+import { SpacerType } from "./modules/spacer/spacer.types";
 
-export type ContentType = ContactType | HeaderType | HomeLandingType | Info1Type;
+export type ContentType = ContactType | HeaderType | HomeLandingType | Info1Type | SpacerType;
 
 export interface ImageType {
   src: string;
