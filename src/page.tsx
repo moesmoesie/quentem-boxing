@@ -2,28 +2,29 @@ import Head from "next/head";
 import { Header } from "./modules/header";
 import { HomeLanding } from "./modules/home-landing";
 
-export const Page: React.FC<any> = (props) => {
+export const Page: React.FC = () => {
   return (
     <div>
       <Head>
-        <title>{props?.seo?.title ?? ""}</title>
-        <meta name="description" content={props?.seo?.description ?? ""} />
-        <meta name="keywords" content={props?.seo?.keywords ? "" : ""} />
+        <title>Quentem</title>
+        <meta name="description" content="Description" />
+        <meta name="keywords" content="Boxing, Personal Trainer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        {props?.modules &&
-          props.modules?.map((module: any, index: number) => {
-            switch (module._type) {
-              case "header":
-                return <Header key={index} {...module} />;
-              case "home-landing":
-                return <HomeLanding key={index} {...module} />;
-              default:
-                return <div key={index}>Module not found : {module._type}</div>;
-            }
-          })}
-      </div>
+
+      <Header logo="Quentem" />
+      <HomeLanding
+        title="Transforming your Body Shape with Diet"
+        subtitle="_MyBodyGoals"
+        body="Change your body shape according to your dreams with a healthy diet plan from the worlds best nutritionist"
+        background={{
+          src: "/images/background.png",
+          alt: "Quentem",
+          title: "Quentem",
+          width: 1000,
+          height: 1000,
+        }}
+      />
     </div>
   );
 };

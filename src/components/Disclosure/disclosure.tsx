@@ -11,8 +11,8 @@ const Disclosure: React.FC<DisclosureProps> = (props) => {
     <HD>
       <div className="text-white flex-col bg-[#151515] rounded-2xl flex">
         <HD.Button className="flex gap-8 items-center p-4">
-          <div className="w-8 h-8">{props.icon}</div>
-          <p className="text-xl font-medium">{props.title}</p>
+          <div className="w-8 h-8 stroke-primary">{props.icon}</div>
+          <p className="text-xl text-left font-medium">{props.title}</p>
           <div className="ml-auto transition-transform ui-open:rotate-45">
             <PlusIcon />
           </div>
