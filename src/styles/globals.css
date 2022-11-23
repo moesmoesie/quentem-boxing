@@ -6,3 +6,9 @@
   font-family: "Rubik";
   src: url("/fonts/Rubik-VariableFont_wght.ttf");
 }
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

@@ -3,7 +3,7 @@ import { HorizontalCardsType } from "./horizontal-cards.types";
 import Carousel from "../../components/carousel/carousel";
 import { Card } from "../../components/card";
 
-export const HomeLanding: React.FC<HorizontalCardsType> = (props) => {
+export const HorizontalCards: React.FC<HorizontalCardsType> = (props) => {
   return (
     <Container>
       <div className="text-center mb-24  flex flex-col gap-5 items-center justify-center text-white">
@@ -13,8 +13,8 @@ export const HomeLanding: React.FC<HorizontalCardsType> = (props) => {
       <Carousel gap="36px">
         {props.cards.map((card, index) => {
           return (
-            <div className="min-w-[432px]">
-              <Card key={index} icon={card.icon} title={card.title} body={card.body} />;
+            <div key={index} className="min-w-[432px]">
+              <Card icon={card.icon} title={card.title} body={card.body} />
             </div>
           );
         })}

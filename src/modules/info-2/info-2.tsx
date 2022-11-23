@@ -15,7 +15,7 @@ const Info2: React.FC<Info2Type> = (props) => {
             </div>
             <div className="flex flex-col gap-9">
               {props.list.map((item, index) => {
-                return <Item {...item} />;
+                return <Item key={index} {...item} />;
               })}
             </div>
           </div>

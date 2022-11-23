@@ -2,7 +2,7 @@ import { Container } from "../../components/container";
 import { Icon } from "../../components/icon";
 import { FooterType } from "./footer.types";
 
-const Info1: React.FC<FooterType> = (props) => {
+export const Footer: React.FC<FooterType> = (props) => {
   return (
     <section className="relative text-white">
       <Container>
@@ -25,5 +25,3 @@ const Info1: React.FC<FooterType> = (props) => {
     </section>
   );
 };
-
-export default Info1;

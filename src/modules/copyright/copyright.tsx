@@ -1,7 +1,7 @@
 import { Container } from "../../components/container";
 import { CopyrightType } from "./copyright.types";
 
-const Info1: React.FC<CopyrightType> = (props) => {
+const Copyright: React.FC<CopyrightType> = (props) => {
   return (
     <section className="relative py-11 border-t-[1.5px] border-t-[#666666]">
       <Container>
@@ -13,4 +13,4 @@ const Info1: React.FC<CopyrightType> = (props) => {
   );
 };
 
-export default Info1;
+export default Copyright;

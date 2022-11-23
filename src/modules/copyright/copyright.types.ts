@@ -1,4 +1,4 @@
 export interface CopyrightType {
-  _type: "footer";
+  _type: "copyright";
   text: string;
 }
