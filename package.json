@@ -16,6 +16,7 @@
     "@next/font": "^13.0.3",
     "@types/dompurify": "^2.4.0",
     "class-variance-authority": "^0.2.4",
+    "framer-motion": "^7.6.9",
     "isomorphic-dompurify": "^0.24.0",
     "next": "13.0.3",
     "next-sanity": "^2.0.1",
