@@ -1,4 +1,6 @@
 import { Disclosure as HD } from "@headlessui/react";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface DisclosureProps {
   title: string;
@@ -9,19 +11,29 @@ interface DisclosureProps {
 const Disclosure: React.FC<DisclosureProps> = (props) => {
   return (
     <HD>
-      <div className="text-white flex-col bg-[#151515] rounded-2xl flex">
-        <HD.Button className="flex gap-8 items-center p-4">
-          <div className="w-8 h-8 ui-open:text-primary text-[#9BBE1A]">{props.icon}</div>
-          <p className="text-xl text-left font-medium">{props.title}</p>
-          <div className="ml-auto transition-transform ui-open:rotate-45">
-            <PlusIcon />
-          </div>
-        </HD.Button>
+      {({ open }) => (
+        <div className="text-white flex-col bg-[#151515] rounded-2xl flex">
+          <HD.Button className="flex gap-8 items-center p-4">
+            <motion.div className="w-8 h-8 ui-open:text-primary transition-colors text-[#9BBE1A]">{props.icon}</motion.div>
+            <p className="text-xl text-left font-medium">{props.title}</p>
+            <div className="ml-auto transition-transform ui-open:rotate-45">
+              <PlusIcon />
+            </div>
+          </HD.Button>
 
-        <HD.Panel as="div" className="px-4 pb-4">
-          <p className="text-[#A5A5A5]">{props.body}</p>
-        </HD.Panel>
-      </div>
+          <AnimatePresence>
+            {open && (
+              <HD.Panel static as="div">
+                <motion.div className="px-4 overflow-hidden" layout initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                  <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[#A5A5A5] pb-6">
+                    {props.body}
+                  </motion.p>
+                </motion.div>
+              </HD.Panel>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
     </HD>
   );
 };
