@@ -8,6 +8,7 @@ import { HomeLandingType } from "./modules/home-landing/home-landing.types";
 import { CopyrightType } from "./modules/copyright/copyright.types";
 import { FooterType } from "./modules/footer/footer.types";
 import { BannerType } from "./modules/banner/banner.types";
+import { GalleryType } from "./modules/gallery/gallery.types";
 
 const createSpacer = (height: string): SpacerType => ({
   _type: "spacer",
@@ -117,6 +118,89 @@ const header: HeaderType = {
   logo: "Quentem",
 };
 
+const gallery: GalleryType = {
+  images: [
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/background-2.png",
+        title: "image",
+      },
+      col: "3",
+      row: "2",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/boxer-1.png",
+        title: "image",
+      },
+      col: "2",
+      row: "2",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/boxer-4.jpg",
+        title: "image",
+      },
+      col: "2",
+      row: "1",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/background-2.png",
+        title: "image",
+      },
+      col: "2",
+      row: "1",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/background-2.png",
+        title: "image",
+      },
+      col: "2",
+      row: "1",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/boxer-3.jpg",
+        title: "image",
+      },
+      col: "3",
+      row: "1",
+    },
+    {
+      image: {
+        alt: "image",
+        height: 500,
+        width: 500,
+        src: "/images/boxer-1.png",
+        title: "image",
+      },
+      col: "2",
+      row: "1",
+    },
+  ],
+  _type: "gallery",
+};
+
 const Homelanding: HomeLandingType = {
   _type: "home-landing",
   title: "QUENTEM MAYWEATHER",
@@ -170,5 +254,5 @@ const Copyright: CopyrightType = {
 
 export const data: PageType = {
   title: "Quentem",
-  content: [header, Homelanding, createSpacer("120px"), Info1, createSpacer("120px"), horizontal, createSpacer("150px"), Info2, createSpacer("150px"), Banner, createSpacer("100px"), Info1, createSpacer("100px"), Copyright],
+  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("120px"), horizontal, createSpacer("150px"), createSpacer("150px"), Banner, createSpacer("100px"), Info1, createSpacer("100px"), Copyright],
 };

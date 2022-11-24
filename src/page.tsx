@@ -10,6 +10,7 @@ import Info2 from "./modules/info-2/info-2";
 import Spacer from "./modules/spacer/spacer";
 import { PageType } from "./types";
 import Copyright from "./modules/copyright/copyright";
+import { Gallery } from "./modules/gallery";
 
 export const Page: React.FC<PageType> = (props) => {
   return (
@@ -45,6 +46,8 @@ export const Page: React.FC<PageType> = (props) => {
               return <Copyright key={index} {...el} />;
             case "footer":
               return <Footer key={index} {...el} />;
+            case "gallery":
+              return <Gallery key={index} {...el} />;
             default:
               return <p>Unknown Module Type</p>;
           }
