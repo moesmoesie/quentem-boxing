@@ -24,7 +24,7 @@ export const HomeLanding: React.FC<HomeLandingType> = (props) => {
               y: 0,
             }}
           >
-            <Image {...props.background} className="absolute object-cover h-full right-0 " />
+            <Image {...props.background} priority className="absolute object-cover h-full right-0 " />
           </motion.div>
         )}
 
