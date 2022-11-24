@@ -16,9 +16,8 @@ export const HomeLanding: React.FC<HomeLandingType> = (props) => {
             }}
             animate={{
               transition: {
-                duration: 2,
+                duration: 1,
                 delay: 0.1,
-                type: "spring",
               },
               opacity: 0.8,
               y: 0,
