@@ -8,18 +8,18 @@ const Info2: React.FC<Info2Type> = (props) => {
     <section className="relative text-white">
       <Container>
         <div className="grid grid-cols-2">
-          <div>
+          <div className="col-span-full large:col-span-1">
             <div className="text-left mb-14 flex flex-col gap-5 items-start justify-start text-white">
               <h2 className="text-3xl  medium:text-4xl  font-sans font-bold">{props.title}</h2>
               <p className="text-gray-100 text-lg medium:text-xl max-w-xl">{props.body}</p>
             </div>
-            <div className="flex flex-col gap-9">
+            <div className="flex flex-col max-w-lg gap-9">
               {props.list.map((item, index) => {
                 return <Item key={index} {...item} />;
               })}
             </div>
           </div>
-          <div className="rounded-lg pl-14 overflow-hidden h-full">
+          <div className="rounded-lg hidden large:block pl-14 overflow-hidden h-full">
             <Image className="h-full rounded-lg w-full object-cover" {...props.image} />
           </div>
         </div>
