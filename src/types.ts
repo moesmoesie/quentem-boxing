@@ -9,8 +9,9 @@ import { HorizontalCardsType } from "./modules/horizontal-cards/horizontal-cards
 import { CopyrightType } from "./modules/copyright/copyright.types";
 import { FooterType } from "./modules/footer/footer.types";
 import { GalleryType } from "./modules/gallery/gallery.types";
+import { TestimonialType } from "./modules/testimonial/testimonial.types";
 
-export type ContentType = GalleryType | ContactType | HeaderType | HomeLandingType | Info1Type | SpacerType | Info2Type | BannerType | HorizontalCardsType | CopyrightType | FooterType;
+export type ContentType = TestimonialType | GalleryType | ContactType | HeaderType | HomeLandingType | Info1Type | SpacerType | Info2Type | BannerType | HorizontalCardsType | CopyrightType | FooterType;
 
 export interface ImageType {
   src: string;

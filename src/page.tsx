@@ -11,6 +11,7 @@ import Spacer from "./modules/spacer/spacer";
 import { PageType } from "./types";
 import Copyright from "./modules/copyright/copyright";
 import { Gallery } from "./modules/gallery";
+import { Testimonial } from "./modules/testimonial";
 
 export const Page: React.FC<PageType> = (props) => {
   return (
@@ -48,6 +49,8 @@ export const Page: React.FC<PageType> = (props) => {
               return <Footer key={index} {...el} />;
             case "gallery":
               return <Gallery key={index} {...el} />;
+            case "testimonial":
+              return <Testimonial key={index} {...el} />;
             default:
               return <p>Unknown Module Type</p>;
           }

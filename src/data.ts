@@ -9,11 +9,26 @@ import { CopyrightType } from "./modules/copyright/copyright.types";
 import { FooterType } from "./modules/footer/footer.types";
 import { BannerType } from "./modules/banner/banner.types";
 import { GalleryType } from "./modules/gallery/gallery.types";
+import { TestimonialType } from "./modules/testimonial/testimonial.types";
 
 const createSpacer = (height: string): SpacerType => ({
   _type: "spacer",
   height,
 });
+
+const testimonial: TestimonialType = {
+  _type: "testimonial",
+  body: "Quetem helps me run a healthy and good diet, in addition to helping me get a good body, I become healthier and happy",
+  name: "John Michael Santos",
+  title: "Businessman",
+  image: {
+    src: "/images/yoga.png",
+    width: 1000,
+    height: 1000,
+    alt: "John Doe",
+    title: "John Doe",
+  },
+};
 
 const Info1: Info1Type = {
   _type: "info-1",
@@ -254,5 +269,5 @@ const Copyright: CopyrightType = {
 
 export const data: PageType = {
   title: "Quentem",
-  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("120px"), horizontal, createSpacer("150px"), createSpacer("150px"), Banner, createSpacer("100px"), Info1, createSpacer("100px"), Copyright],
+  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("200px"), horizontal, createSpacer("200px"), testimonial, createSpacer("100px"), Info1, createSpacer("100px"), Copyright],
 };
