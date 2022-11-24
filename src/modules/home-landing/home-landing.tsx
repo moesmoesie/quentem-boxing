@@ -2,24 +2,45 @@ import Button from "../../components/button/button";
 import Container from "../../components/container/container";
 import Image from "next/image";
 import { HomeLandingType } from "./home-landing.types";
+import { motion } from "framer-motion";
 
 export const HomeLanding: React.FC<HomeLandingType> = (props) => {
   return (
-    <div className="relative text-white">
+    <section>
       <Container>
-        {props.background && <Image {...props.background} width={1000} priority className=" right-0 w-full left-0 pointer-events-none absolute medium:h-[100vh] h-[80vh] object-cover" />}
-        <section className="medium:pt-[150px] pt-[130px] relative">
-          <div className="mb-6 medium:mb-10">
-            <p className="text-accent text-xl  medium:text-2xl">{props.subtitle}</p>
-            <h1 className="text-5xl medium:text-6xl font-bold mb-3 max-w-[500px] leading-tight">{props.title}</h1>
-            <p className="text-xl medium:text-2xl text-gray-100 max-w-md">{props.body}</p>
+        {props.background && (
+          <motion.div
+            className="absolute h-[108vh] w-full right-0"
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              transition: {
+                duration: 2,
+                delay: 0.1,
+                type: "spring",
+              },
+              opacity: 0.8,
+              y: 0,
+            }}
+          >
+            <Image {...props.background} className="absolute object-cover h-full right-0 " />
+          </motion.div>
+        )}
+
+        <div className="h-[108vh] min-h-[500px] relative text-white">
+          <div className="w-full relative flex flex-col text-left gap-8 pt-44 ">
+            <h1 className="font-black text-7xl uppercase drop-shadow-2xl medium:text-8xl max-w-2xl text-left">Quentem Mayweather</h1>
+            <p className="max-w-xl font-thin drop-shadow-2xl text-white text-xl">{props.body}</p>
+            <div className="flex gap-6">
+              <Button className=" text-white ">{props.callToAction1.title}</Button>
+              <Button intent={"outlined"} className=" text-white ">
+                {props.callToAction2.title}
+              </Button>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-5 medium:gap-10">
-            <Button>Wedstrijden</Button>
-            <Button intent={"outlined"}>Lees Blog</Button>
-          </div>
-        </section>
+        </div>
       </Container>
-    </div>
+    </section>
   );
 };

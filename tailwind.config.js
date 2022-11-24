@@ -3,10 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["var(--font-rubik)"],
+      sans: ["var(--font-sans)"],
     },
     colors: {
-      primary: "#A126F1",
+      primary: "#dd0011",
       accent: "#9BBE1A",
       "gray-100": "#C1C1C1",
       black: "#000000",

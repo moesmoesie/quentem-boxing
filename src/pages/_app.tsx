@@ -1,9 +1,9 @@
 import "../styles/globals.css";
-import { Rubik } from "@next/font/google";
+import { Oswald } from "@next/font/google";
 
-const rubik = Rubik({
+const rubik = Oswald({
   subsets: ["latin"],
-  variable: "--font-rubik",
+  variable: "--font-sans",
 });
 
 import type { AppProps } from "next/app";

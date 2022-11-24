@@ -119,15 +119,22 @@ const header: HeaderType = {
 
 const Homelanding: HomeLandingType = {
   _type: "home-landing",
-  title: "Transforming your Body Shape with Diet",
-  subtitle: "_MyBodyGoals",
-  body: "Change your body shape according to your dreams with a healthy diet plan from the world’s best nutritionist",
+  title: "QUENTEM MAYWEATHER",
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam tincidunt, nisl elit aliquam massa, eget aliquam nisl nunc eu augue. Sed euismod, nunc ut aliquam tincidunt, nisl elit aliquam massa, eget aliquam nisl nunc eu augue.",
   background: {
     alt: "Home Landing Background",
     width: 1080,
     height: 1080,
     title: "Home Landing Background",
     src: "/images/background.png",
+  },
+  callToAction1: {
+    title: "Watch Highlights",
+    href: "/",
+  },
+  callToAction2: {
+    title: "Contact",
+    href: "/",
   },
 };
 
