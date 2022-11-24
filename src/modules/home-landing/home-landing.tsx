@@ -9,22 +9,28 @@ export const HomeLanding: React.FC<HomeLandingType> = (props) => {
     <section>
       <Container>
         {props.background && (
-          <motion.div
-            className="absolute h-[108vh] w-full right-0"
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              transition: {
-                duration: 1,
-                delay: 0.1,
-              },
-              opacity: 0.8,
-              y: 0,
-            }}
-          >
-            <Image {...props.background} priority className="absolute object-cover h-full right-0 " />
-          </motion.div>
+          <>
+            <motion.div
+              className="absolute hidden medium:block transition-none h-[108vh] w-full right-0"
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                transition: {
+                  duration: 1,
+                  delay: 0.1,
+                },
+                opacity: 0.8,
+                y: 0,
+              }}
+            >
+              <Image {...props.background} priority className="absolute object-cover h-full right-0 " />
+            </motion.div>
+
+            <div className="absolute medium:hidden transition-none h-[108vh] w-full right-0">
+              <Image {...props.background} priority className="absolute object-cover h-full right-0 " />
+            </div>
+          </>
         )}
 
         <div className="h-[108vh] min-h-[500px] relative text-white">
