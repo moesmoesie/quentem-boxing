@@ -47,5 +47,15 @@ export const Gallery: React.FC<GalleryType> = (props) => {
 };
 
 const Item: React.FC<{ image?: ImageType }> = (props) => {
-  return <div className={`overflow-hidden w-full h-full border border-gray-100/20 rounded-md`}>{props.image ? <Image className="w-full h-full opacity-60 object-cover" {...props.image} /> : null}</div>;
+  return (
+    <motion.div
+      whileHover={{
+        opacity: 1,
+      }}
+      initial={{ opacity: 0.6 }}
+      className={`overflow-hidden w-full h-full border border-gray-100/20 rounded-md`}
+    >
+      {props.image ? <Image className="w-full h-full object-cover" {...props.image} /> : null}
+    </motion.div>
+  );
 };
