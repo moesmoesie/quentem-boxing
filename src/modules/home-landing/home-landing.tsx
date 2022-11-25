@@ -30,10 +30,12 @@ export const HomeLanding: React.FC<HomeLandingType> = (props) => {
               <h1 className="font-black text-6xl uppercase drop-shadow-2xl medium:text-8xl max-w-2xl text-left">Quentem Mayweather</h1>
               <p className="max-w-[90%] medium:max-w-xl font-thin drop-shadow-2xl text-white text-xl">{props.body}</p>
               <div className="flex gap-6">
-                <Button className=" text-white ">{props.callToAction1.title}</Button>
-                <Button intent={"outlined"} className=" text-white ">
-                  {props.callToAction2.title}
-                </Button>
+                {props?.callToAction1 && <Button className=" text-white ">{props.callToAction1.title}</Button>}
+                {props?.callToAction2 && (
+                  <Button intent={"outlined"} className=" text-white ">
+                    {props.callToAction2.title}
+                  </Button>
+                )}
               </div>
             </div>
           </div>

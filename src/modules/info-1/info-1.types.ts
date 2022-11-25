@@ -1,14 +1,20 @@
-import { ImageType } from "../../types";
-import { IconType } from "../../types";
+import { z } from "zod";
+import { fb } from "../../helpers/zod";
+import { ImageTypeZod } from "../../types";
+import { IconTypeZod } from "../../types";
 
-export interface Info1Type {
-  _type: "info-1";
-  title: string;
-  body: string;
-  image: ImageType;
-  list: {
-    title: string;
-    body: string;
-    icon: IconType;
-  }[];
-}
+const Info1ListItemZod = z.object({
+  title: z.string().or(fb("Title")),
+  body: z.string().or(fb("Body")),
+  icon: IconTypeZod,
+});
+
+export const Info1Zod = z.object({
+  _type: z.literal("info-1"),
+  title: z.string().or(fb("Title")),
+  body: z.string().or(fb("Body")),
+  image: ImageTypeZod,
+  list: z.array(Info1ListItemZod).or(fb(undefined)),
+});
+
+export type Info1Type = z.infer<typeof Info1Zod>;

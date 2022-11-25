@@ -14,14 +14,14 @@ const Info1: React.FC<Info1Type> = (props) => {
         </div>
 
         <div className="flex justify-center large:gap-12">
-          <div className="h-[300px] hidden large:block flex-1 overflow-hidden rounded-2xl bg-gray-100">
-            <Image {...props.image} className="w-full h-full object-cover" />
-          </div>
-          <div className="w-full medium:w-[70%] large:w-[55%] flex flex-col gap-7">
-            {props?.list?.map((item, index) => {
-              return <Disclosure key={index} title={item.title} body={item.body} icon={<Icon icon={item.icon} />} />;
-            })}
-          </div>
+          <div className="h-[300px] hidden large:block flex-1 overflow-hidden rounded-2xl bg-gray-100">{props?.image && <Image {...props.image} className="w-full h-full object-cover" />}</div>
+          {props?.list && (
+            <div className="w-full medium:w-[70%] large:w-[55%] flex flex-col gap-7">
+              {props?.list?.map((item, index) => {
+                return <Disclosure key={index} title={item.title} body={item.body} icon={<Icon icon={item.icon} />} />;
+              })}
+            </div>
+          )}
         </div>
       </Container>
     </section>

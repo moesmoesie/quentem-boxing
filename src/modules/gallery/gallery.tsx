@@ -1,9 +1,9 @@
 import { Container } from "../../components/container";
 import { GalleryType } from "./gallery.types";
 import Image from "next/image";
-import { ImageType } from "../../types";
 import { motion } from "framer-motion";
 import Carousel from "../../components/carousel/carousel";
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -30,7 +30,7 @@ export const Gallery: React.FC<GalleryType> = (props) => {
               {props.images.map((image, index) => {
                 return (
                   <motion.div variants={x} transition={{ duration: 0.5 }} key={index}>
-                    <Image {...image.image} className="w-[350px] max-w-[80vw] rounded-md h-[350px] object-cover" />
+                    {image.image && <Image {...image.image} className="w-[350px] max-w-[80vw] rounded-md h-[350px] object-cover" />}
                   </motion.div>
                 );
               })}
@@ -60,7 +60,7 @@ export const Gallery: React.FC<GalleryType> = (props) => {
   );
 };
 
-const Item: React.FC<{ image?: ImageType }> = (props) => {
+const Item: React.FC<{ image?: any }> = (props) => {
   return (
     <motion.div
       whileHover={{

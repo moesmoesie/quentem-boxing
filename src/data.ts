@@ -1,4 +1,4 @@
-import { PageType } from "./types";
+import { PageType } from "./page";
 import { SpacerType } from "./modules/spacer/spacer.types";
 import { Info1Type } from "./modules/info-1/info-1.types";
 import { Info2Type } from "./modules/info-2/info-2.types";
@@ -219,7 +219,7 @@ const gallery: GalleryType = {
 
 const Homelanding: HomeLandingType = {
   _type: "home-landing",
-  title: "QUENTEM MAYWEATHER",
+  title: "QUENTEM VERBOOM",
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam tincidunt, nisl elit aliquam massa, eget aliquam nisl nunc eu augue. Sed euismod, nunc ut aliquam tincidunt, nisl elit aliquam massa, eget aliquam nisl nunc eu augue.",
   background: {
     alt: "Home Landing Background",
@@ -285,6 +285,5 @@ const contact: ContactType = {
 };
 
 export const data: PageType = {
-  title: "Quentim",
   content: [header, Homelanding, createSpacer("80px"), gallery, createSpacer("150px"), Info2, createSpacer("150px"), Info1, createSpacer("100px"), testimonial, createSpacer("120px"), contact, createSpacer("120px"), Copyright],
 };

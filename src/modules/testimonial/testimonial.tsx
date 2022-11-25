@@ -7,9 +7,7 @@ export const Testimonial: React.FC<TestimonialType> = (props) => {
     <section className="text-white bg-[#101010]">
       <Container>
         <div className="grid grid-cols-5">
-          <div className="rounded-lg  pr-10 hidden medium:block col-span-3 h-full">
-            <Image className="h-[112%] -translate-y-[6%] rounded-lg w-full object-cover" {...props.image} />
-          </div>
+          <div className="rounded-lg  pr-10 hidden medium:block col-span-3 h-full">{props?.image && <Image className="h-[112%] -translate-y-[6%] rounded-lg w-full object-cover" {...props.image} />}</div>
           <div className="py-20 col-span-full medium:col-span-2">
             <Quote />
             <p className="text-3xl mt-14 mb-6">{props.body}</p>
