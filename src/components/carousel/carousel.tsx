@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue } from "framer-motion";
 import React, { useRef } from "react";
 
 interface CarouselType {
@@ -8,6 +8,27 @@ interface CarouselType {
 
 const Carousel: React.FC<CarouselType> = (props) => {
   const container = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const items = useRef<HTMLLIElement[]>([]);
+
+  const onDragEnd = () => {
+    const value = container.current!.offsetLeft;
+    let index: number = 0;
+    let bestDistance = Infinity;
+
+    items.current.forEach((item) => {
+      const itemX = item.getBoundingClientRect().x;
+      const distance = Math.abs(itemX - value);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        index = items.current.indexOf(item);
+      }
+    });
+
+    animate(x, -items.current[index].offsetLeft, {
+      ease: "easeOut",
+    });
+  };
 
   return (
     <div
@@ -19,26 +40,17 @@ const Carousel: React.FC<CarouselType> = (props) => {
       ref={container}
       className="w-full "
     >
-      <motion.ul drag="x" whileTap={{ cursor: "grabbing" }} dragConstraints={container} className="relative cursor-grab inline-flex">
+      <motion.ul onDragEnd={() => onDragEnd()} style={{ x }} drag="x" whileTap={{ cursor: "grabbing" }} dragConstraints={container} className="relative snap-x cursor-grab inline-flex">
         {props.children.map((child, index) => {
           return (
-            <Item key={index} gap={props.gap}>
+            <li ref={(el) => (items.current = [...items.current, el!])} key={index} className="pr-[var(--carousel-padding)] last:pr-0 shrink-0 pointer-events-none">
               {child}
-            </Item>
+            </li>
           );
         })}
       </motion.ul>
     </div>
   );
-};
-
-interface ItemType {
-  gap?: string;
-  children: React.ReactNode;
-}
-
-const Item: React.FC<ItemType> = (props) => {
-  return <li className="last:pr-0 shrink-0 pointer-events-none pr-[var(--carousel-padding)]">{props.children}</li>;
 };
 
 export default Carousel;
