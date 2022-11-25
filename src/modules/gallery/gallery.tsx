@@ -25,9 +25,10 @@ export const Gallery: React.FC<GalleryType> = (props) => {
     <section>
       <Container>
         <motion.div variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"} className="grid grid-cols-7 gap-2 h-[800px] grid-rows-3">
-          {props.images.map((item) => {
+          {props.images.map((item, index) => {
             return (
               <motion.div
+                key={index}
                 variants={x}
                 transition={{ duration: 0.5 }}
                 style={{
