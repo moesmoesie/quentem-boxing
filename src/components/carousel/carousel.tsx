@@ -38,7 +38,7 @@ interface ItemType {
 }
 
 const Item: React.FC<ItemType> = (props) => {
-  return <li className="last:pr-0 pr-[var(--carousel-padding)]">{props.children}</li>;
+  return <li className="last:pr-0 shrink-0 pr-[var(--carousel-padding)]">{props.children}</li>;
 };
 
 export default Carousel;

@@ -3,7 +3,7 @@ import { GalleryType } from "./gallery.types";
 import Image from "next/image";
 import { ImageType } from "../../types";
 import { motion } from "framer-motion";
-
+import Carousel from "../../components/carousel/carousel";
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -24,7 +24,21 @@ export const Gallery: React.FC<GalleryType> = (props) => {
   return (
     <section>
       <Container>
-        <motion.div variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"} className="grid grid-cols-7 gap-2 h-[800px] grid-rows-3">
+        <div className="medium:hidden">
+          <motion.div variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"}>
+            <Carousel gap="25px">
+              {props.images.map((image, index) => {
+                return (
+                  <motion.div variants={x} transition={{ duration: 0.5 }} key={index}>
+                    <Image {...image.image} className="w-[350px] max-w-[80vw] rounded-md h-[350px] object-cover" />
+                  </motion.div>
+                );
+              })}
+            </Carousel>
+          </motion.div>
+        </div>
+
+        <motion.div variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"} className="medium:grid hidden grid-cols-7 gap-2 h-[800px] grid-rows-3">
           {props.images.map((item, index) => {
             return (
               <motion.div
