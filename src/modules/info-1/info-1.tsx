@@ -1,6 +1,6 @@
 import { Container } from "../../components/container";
 import { Info1Type } from "./info-1.types";
-import Disclosure from "../../components/Disclosure/disclosure";
+import Disclosure from "../../components/disclosure/disclosure";
 import Image from "next/image";
 import { Icon } from "../../components/icon";
 
