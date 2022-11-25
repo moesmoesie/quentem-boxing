@@ -19,7 +19,7 @@ const Carousel: React.FC<CarouselType> = (props) => {
       ref={container}
       className="w-full "
     >
-      <motion.ul drag="x" dragConstraints={container} className="relative inline-flex">
+      <motion.ul drag="x" whileTap={{ cursor: "grabbing" }} dragConstraints={container} className="relative cursor-grab inline-flex">
         {props.children.map((child, index) => {
           return (
             <Item key={index} gap={props.gap}>
@@ -38,7 +38,7 @@ interface ItemType {
 }
 
 const Item: React.FC<ItemType> = (props) => {
-  return <li className="last:pr-0 shrink-0 pr-[var(--carousel-padding)]">{props.children}</li>;
+  return <li className="last:pr-0 shrink-0 pointer-events-none pr-[var(--carousel-padding)]">{props.children}</li>;
 };
 
 export default Carousel;
