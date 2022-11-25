@@ -10,15 +10,18 @@ export const HorizontalCards: React.FC<HorizontalCardsType> = (props) => {
         <h2 className="text-3xl  medium:text-4xl  font-sans font-bold">{props.title}</h2>
         <p className="text-gray-100 text-lg medium:text-xl max-w-xl">{props.body}</p>
       </div>
-      <Carousel gap="36px">
-        {props.cards.map((card, index) => {
-          return (
-            <div key={index} className="min-w-[432px]">
-              <Card icon={card.icon} title={card.title} body={card.body} />
-            </div>
-          );
-        })}
-      </Carousel>
+
+      {props.cards && (
+        <Carousel gap="36px">
+          {props.cards.map((card, index) => {
+            return (
+              <div key={index} className="min-w-[432px]">
+                <Card icon={card.icon} title={card.title} body={card.body} />
+              </div>
+            );
+          })}
+        </Carousel>
+      )}
 
       <div></div>
     </Container>
