@@ -4,6 +4,7 @@ import { Oswald } from "@next/font/google";
 const rubik = Oswald({
   subsets: ["latin"],
   variable: "--font-sans",
+  preload: true,
 });
 
 import type { AppProps } from "next/app";
