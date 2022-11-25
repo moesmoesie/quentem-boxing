@@ -51,6 +51,8 @@ export const Page: React.FC<PageType> = (props) => {
               return <Gallery key={index} {...el} />;
             case "testimonial":
               return <Testimonial key={index} {...el} />;
+            case "contact":
+              return <Contact key={index} {...el} />;
             default:
               return <p>Unknown Module Type</p>;
           }

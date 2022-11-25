@@ -10,6 +10,7 @@ import { FooterType } from "./modules/footer/footer.types";
 import { BannerType } from "./modules/banner/banner.types";
 import { GalleryType } from "./modules/gallery/gallery.types";
 import { TestimonialType } from "./modules/testimonial/testimonial.types";
+import { ContactType } from "./modules/contact/contact.types";
 
 const createSpacer = (height: string): SpacerType => ({
   _type: "spacer",
@@ -267,7 +268,23 @@ const Copyright: CopyrightType = {
   text: "© 2021 Quentem. All rights reserved.",
 };
 
+const contact: ContactType = {
+  _type: "contact",
+  title: "Lorem ipsum dolor sit ut.",
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin elit eu diam bibendum, et convallis leo condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer mollis purus proin.",
+  image: {
+    alt: "image",
+    height: 500,
+    width: 500,
+    src: "/images/boxer-1.png",
+    title: "image",
+  },
+  whatsapp: "",
+  email: "e",
+  phone: "p",
+};
+
 export const data: PageType = {
   title: "Quentem",
-  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("200px"), horizontal, createSpacer("200px"), testimonial, createSpacer("100px"), Info1, createSpacer("100px"), Copyright],
+  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("150px"), Info1, createSpacer("100px"), testimonial, createSpacer("120px"), contact, createSpacer("120px"), Copyright],
 };
