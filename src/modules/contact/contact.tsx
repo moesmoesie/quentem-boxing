@@ -13,7 +13,7 @@ export const Contact: React.FC<ContactType> = (props) => {
             <Image {...props.image} className="w-full h-full object-cover" />
           </div>
           <p className="text-gray-100 font-light text-lg medium:text-xl max-w-xl">{props.body}</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap justify-center gap-5">
             <Button>Stuur een email</Button>
             <Button intent={"outlined"}>Stuur een whatsapp</Button>
           </div>
