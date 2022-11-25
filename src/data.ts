@@ -285,6 +285,6 @@ const contact: ContactType = {
 };
 
 export const data: PageType = {
-  title: "Quentem",
-  content: [header, Homelanding, gallery, createSpacer("150px"), Info2, createSpacer("150px"), Info1, createSpacer("100px"), testimonial, createSpacer("120px"), contact, createSpacer("120px"), Copyright],
+  title: "Quentim",
+  content: [header, Homelanding, createSpacer("80px"), gallery, createSpacer("150px"), Info2, createSpacer("150px"), Info1, createSpacer("100px"), testimonial, createSpacer("120px"), contact, createSpacer("120px"), Copyright],
 };
