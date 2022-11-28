@@ -16,7 +16,7 @@ module.exports = {
       touch: { raw: "(hover:none)" },
       small: "450px",
       medium: "768px",
-      large: "1280px",
+      large: "1024px",
     },
     extend: {},
   },
