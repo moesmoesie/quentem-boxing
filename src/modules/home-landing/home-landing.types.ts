@@ -9,16 +9,16 @@ export const HomeLandingZod = z.object({
   background: ImageTypeZod,
   callToAction1: z
     .object({
-      title: z.string().or(fb("Title")),
+      text: z.string().or(fb("Title")),
       href: z.string().or(fb("#")),
     })
-    .or(fb(undefined)),
+    .or(fb(null)),
   callToAction2: z
     .object({
-      title: z.string().or(fb("Title")),
+      text: z.string().or(fb("Title")),
       href: z.string().or(fb("#")),
     })
-    .or(fb(undefined)),
+    .or(fb(null)),
 });
 
 export type HomeLandingType = z.infer<typeof HomeLandingZod>;

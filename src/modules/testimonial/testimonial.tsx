@@ -1,13 +1,16 @@
 import Container from "../../components/container/container";
 import { TestimonialType } from "./testimonial.types";
 import Image from "next/image";
+import imageLoader from "../../lib/imageLoader";
 
 export const Testimonial: React.FC<TestimonialType> = (props) => {
   return (
     <section className="text-white bg-[#101010]">
       <Container>
         <div className="grid grid-cols-5">
-          <div className="rounded-lg  pr-10 hidden medium:block col-span-3 h-full">{props?.image && <Image className="h-[112%] -translate-y-[6%] rounded-lg w-full object-cover" {...props.image} />}</div>
+          <div className="rounded-lg relative pr-10 hidden medium:block col-span-3 h-full">
+            {props?.image && <Image loader={imageLoader} className="h-[112%] absolute top-0 right-10  -translate-y-[6%] rounded-lg w-full object-cover" {...props.image} width={600} />}
+          </div>
           <div className="py-20 col-span-full medium:col-span-2">
             <Quote />
             <p className="text-3xl mt-14 mb-6">{props.body}</p>

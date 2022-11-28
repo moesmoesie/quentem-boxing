@@ -3,7 +3,7 @@ import { GalleryType } from "./gallery.types";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Carousel from "../../components/carousel/carousel";
-
+import imageLoader from "../../lib/imageLoader";
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -30,7 +30,7 @@ export const Gallery: React.FC<GalleryType> = (props) => {
               {props.images.map((image, index) => {
                 return (
                   <motion.div variants={x} transition={{ duration: 0.5 }} key={index}>
-                    {image.image && <Image {...image.image} className="w-[350px] max-w-[80vw] rounded-md h-[350px] object-cover" />}
+                    {image.image && <Image loader={imageLoader} {...image.image} width={400} className="w-[350px] max-w-[80vw] rounded-md h-[350px] object-cover" />}
                   </motion.div>
                 );
               })}
@@ -38,7 +38,7 @@ export const Gallery: React.FC<GalleryType> = (props) => {
           </motion.div>
         </div>
 
-        <motion.div variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"} className="medium:grid hidden grid-cols-7 gap-2 h-[800px] grid-rows-3">
+        <motion.div layout variants={container} initial="hidden" viewport={{ once: true }} whileInView={"show"} className="medium:grid hidden grid-cols-7 gap-2 h-[800px] grid-rows-3">
           {props.images.map((item, index) => {
             return (
               <motion.div
@@ -69,7 +69,7 @@ const Item: React.FC<{ image?: any }> = (props) => {
       initial={{ opacity: 0.6 }}
       className={`overflow-hidden w-full h-full border border-gray-100/20 rounded-md`}
     >
-      {props.image ? <Image className="w-full h-full object-cover" {...props.image} /> : null}
+      {props.image ? <Image loader={imageLoader} className="w-full h-full object-cover" {...props.image} width={400} /> : null}
     </motion.div>
   );
 };

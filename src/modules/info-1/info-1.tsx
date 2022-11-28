@@ -3,6 +3,7 @@ import { Info1Type } from "./info-1.types";
 import Disclosure from "../../components/disclosure/disclosure";
 import Image from "next/image";
 import { Icon } from "../../components/icon";
+import imageLoader from "../../lib/imageLoader";
 
 const Info1: React.FC<Info1Type> = (props) => {
   return (
@@ -14,7 +15,7 @@ const Info1: React.FC<Info1Type> = (props) => {
         </div>
 
         <div className="flex justify-center large:gap-12">
-          <div className="h-[300px] hidden large:block flex-1 overflow-hidden rounded-2xl bg-gray-100">{props?.image && <Image {...props.image} className="w-full h-full object-cover" />}</div>
+          <div className="h-[300px] hidden large:block flex-1 overflow-hidden rounded-2xl bg-gray-100">{props?.image && <Image loader={imageLoader} {...props.image} width={500} className="w-full h-full object-cover" />}</div>
           {props?.list && (
             <div className="w-full medium:w-[70%] large:w-[55%] flex flex-col gap-7">
               {props?.list?.map((item, index) => {

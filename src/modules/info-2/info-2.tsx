@@ -2,6 +2,7 @@ import { Container } from "../../components/container";
 import { Icon } from "../../components/icon";
 import { Info2Type, Info2ListItemType } from "./info-2.types";
 import Image from "next/image";
+import imageLoader from "../../lib/imageLoader";
 
 const Info2: React.FC<Info2Type> = (props) => {
   return (
@@ -21,7 +22,7 @@ const Info2: React.FC<Info2Type> = (props) => {
               </div>
             )}
           </div>
-          <div className="rounded-lg hidden large:block pl-14 overflow-hidden h-full">{props?.image && <Image className="h-full rounded-lg w-full object-cover" {...props.image} width={1000} />}</div>
+          <div className="rounded-lg hidden large:block pl-14 overflow-hidden h-full">{props?.image && <Image loader={imageLoader} className="h-full rounded-lg w-full object-cover" {...props.image} width={1000} />}</div>
         </div>
       </Container>
     </section>

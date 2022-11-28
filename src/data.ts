@@ -229,11 +229,11 @@ const Homelanding: HomeLandingType = {
     src: "/images/background.png",
   },
   callToAction1: {
-    title: "Watch Highlights",
+    text: "Watch Highlights",
     href: "/",
   },
   callToAction2: {
-    title: "Contact",
+    text: "Contact",
     href: "/",
   },
 };

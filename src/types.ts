@@ -9,7 +9,7 @@ export const ImageTypeZod = z
     alt: z.string().or(fb("Alt")),
     title: z.string().or(fb("Title")),
   })
-  .or(fb(undefined));
+  .or(fb(null));
 
 export const IconTypeZod = z.string().or(fb(undefined));
 
