@@ -29,5 +29,8 @@ export default defineType({
     {
       type: "copyright",
     },
+    {
+      type: "header",
+    },
   ],
 });

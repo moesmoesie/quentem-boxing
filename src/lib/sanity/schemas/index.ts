@@ -10,6 +10,8 @@ import info1Schema from "./info-1.schema";
 import testimonialSchema from "./testimonial.schema";
 import contactSchema from "./contact.schema";
 import copyrightSchema from "./copyright.schema";
-const schemas = [copyrightSchema, contactSchema, testimonialSchema, info1Schema, info2Schema, gallerySchema, homeSchema, seoSchema, linkSchema, homeLandingSchema, spacerSchema, pageContentSchema];
+import headerSchema from "./header.schema";
+
+const schemas = [headerSchema, copyrightSchema, contactSchema, testimonialSchema, info1Schema, info2Schema, gallerySchema, homeSchema, seoSchema, linkSchema, homeLandingSchema, spacerSchema, pageContentSchema];
 
 export default schemas;

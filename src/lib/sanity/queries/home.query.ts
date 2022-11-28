@@ -65,6 +65,9 @@ const HomeQuery = `
           },
           _type == "copyright" => {
             text,
+          },
+          _type == "header" => {
+            logo
           }
         }
     }
